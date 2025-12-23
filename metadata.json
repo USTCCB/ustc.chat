@@ -1,0 +1,7 @@
+{
+  "name": "Aura AI Companion",
+  "description": "A premium AI companion with cinematic visuals and real-time voice interaction powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
