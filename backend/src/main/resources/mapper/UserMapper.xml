@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ustccb.ustcchat.model.mapper.UserMapper">
+    <select id="findById" resultType="com.ustccb.ustcchat.model.User">
+        SELECT id, username, email, password_hash, avatar_url, role, created_at, updated_at
+        FROM users WHERE id = #{id}
+    </select>
+    <select id="findByEmail" resultType="com.ustccb.ustcchat.model.User">
+        SELECT id, username, email, password_hash, avatar_url, role, created_at, updated_at
+        FROM users WHERE email = #{email}
+    </select>
+    <insert id="insert" parameterType="com.ustccb.ustcchat.model.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (username, email, password_hash, avatar_url, role)
+        VALUES (#{username}, #{email}, #{passwordHash}, #{avatarUrl}, #{role})
+    </insert>
+    <update id="updateLastLogin">
+        UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = #{id}
+    </update>
+</mapper>
